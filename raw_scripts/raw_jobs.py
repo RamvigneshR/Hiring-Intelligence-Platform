@@ -26,7 +26,7 @@ def main():
     #collect files with run_date to fetch data to insert into raw.raw_jobs table
     files=[]
     for f in os.listdir(storage_path):
-        if f.startswith(f"jobs_{run_date}_") and f.endswith(".json"):
+        if f.startswith(f"jobs_{run_date}_"):
             files.append(f)
     if not files:
             print(f"No files found for run_date={run_date}")
