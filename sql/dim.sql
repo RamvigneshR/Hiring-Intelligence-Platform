@@ -1,4 +1,3 @@
--- Active: 1762488663111@@localhost@5432@hiring_platform
 create schema if not exists dim;
 
 create table if not exists dim.dim_company(
