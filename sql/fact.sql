@@ -21,9 +21,9 @@ create table if not exists fact.fact_jobs(
     foreign key (posted_date_key) references dim.dim_date(date_key)
 );
 
-create index idx_fact_company on fact.fact_jobs(company_key);
-create index idx_fact_location on fact.fact_jobs(location_key);
-create index idx_fact_title on fact.fact_jobs(job_title_key);
+create index idx_fact_company on fact.fact_jobs(company_key_id);
+create index idx_fact_location on fact.fact_jobs(location_key_id);
+create index idx_fact_title on fact.fact_jobs(job_title_id);
 create index idx_fact_date on fact.fact_jobs(posted_date_key);
 create index idx_fact_run_id on fact.fact_jobs(run_id);
 create index idx_fact_date_company on fact.fact_jobs(posted_date_key, company_key);

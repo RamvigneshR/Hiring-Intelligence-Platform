@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-log_dir = "LOGLOG_DIR"
+log_dir = os.getenv("LOG_DIR")
 log_file_name=""
 
 def log(layer,run_id = '12345'):

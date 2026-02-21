@@ -5,7 +5,7 @@ import logging
 from dotenv import load_dotenv
 from log_script import log
 
-def load_dim_company(run_id : str):
+def load_dim_location(run_id : str):
     logger = log(run_id)
     engine = get_engine()
     
@@ -25,6 +25,6 @@ def load_dim_company(run_id : str):
         
 if __name__ == "__main__":      
     run_id = "dim_location" + datetime.now().strftime("%Y%m%d")
-    load_dim_company(run_id) 
+    load_dim_location(run_id) 
     
 
