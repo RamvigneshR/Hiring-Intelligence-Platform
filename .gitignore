@@ -1,0 +1,20 @@
+cat > .gitignore << 'EOF'
+.venv/
+airflow_venv/
+airflow_home/
+__pycache__/
+*.pyc
+.env
+.env.dev
+.env.prod
+!.env.prod.example
+arbeitnow_json/
+*.json
+logs/
+*.log
+.~lock.*
+~$*
+.DS_Store
+.vscode/
+*.swp
+EOF
