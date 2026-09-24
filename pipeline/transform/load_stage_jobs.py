@@ -13,11 +13,11 @@ def load_stage_jobs(start_date: str, end_date: str):
     with engine.begin() as conn:
         #conn.execute(text("TRUNCATE TABLE load.load_stage_jobs"))
         
-        conn.execute(text("TRUNCATE TABLE load.load_stage_jobs RESTART IDENTITY"))
+        conn.execute(text("TRUNCATE TABLE stage.load_stage_jobs RESTART IDENTITY"))
 
         conn.execute(
             text("""
-                INSERT INTO load.load_stage_jobs (job_id, role, description, company_name, location,
+                INSERT INTO stage.load_stage_jobs (job_id, role, description, company_name, location,
                                              is_remote, source_url, posted_time, run_date)
                 SELECT payload->>'slug', payload->>'title', payload->>'description',
                        payload->>'company_name', payload->>'location',
@@ -28,9 +28,9 @@ def load_stage_jobs(start_date: str, end_date: str):
             {"start_date": start_date, "end_date": end_date},
         )
 
-        total_rows = conn.execute(text("SELECT count(*) FROM load.load_stage_jobs")).scalar()
+        total_rows = conn.execute(text("SELECT count(*) FROM stage.load_stage_jobs")).scalar()
 
-    logger.info(f"Reloaded load.load_stage_jobs: {total_rows} rows for range {start_date} to {end_date}")
+    logger.info(f"Reloaded stage.load_stage_jobs: {total_rows} rows for range {start_date} to {end_date}")
     return total_rows
 
 

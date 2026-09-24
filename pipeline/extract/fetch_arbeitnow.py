@@ -1,5 +1,5 @@
-import os
 import json
+import os
 import requests
 from datetime import datetime, timezone
 from config.settings import WEBSITE_URL, PAGES_TO_RUN, STORAGE_PATH, validate
@@ -20,7 +20,9 @@ def run_fetch(run_date: str) -> list[str]:
         response.raise_for_status()
         data = response.json()
 
-        file_path = os.path.join(STORAGE_PATH, f"jobs_{run_timestamp}_page_{page}.json")
+        file_path = os.path.join(
+            STORAGE_PATH, f"jobs_{run_timestamp}_page_{page}.json"
+        )
         with open(file_path, "w") as f:
             json.dump(data, f, indent=2)
         files_written.append(file_path)

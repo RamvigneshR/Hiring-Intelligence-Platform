@@ -6,9 +6,6 @@ from utils.logger import get_logger
 
 
 def build_filter_stage_fact(run_id: str) -> int:
-    # captures rows from stage_jobs that failed to match company, job_title,
-    # or posted_date in the dim tables. kept separate from stage_fact_jobs
-    # so rejects can be investigated on their own without touching clean data.
     validate()
     logger = get_logger("build_filter_stage_fact", run_id)
     engine = get_engine()

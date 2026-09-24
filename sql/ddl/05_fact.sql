@@ -1,4 +1,3 @@
--- Active: 1780412979706@@localhost@5432@hiring_platform_prod
 create schema if not exists fact;
 
 create table if not exists fact.fact_jobs (

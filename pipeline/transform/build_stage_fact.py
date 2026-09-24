@@ -6,9 +6,6 @@ from utils.logger import get_logger
 
 
 def build_stage_fact(run_id: str) -> int:
-    # joins stage_jobs against dim tables and keeps only rows where every
-    # required dim key was found. location is not required, remote jobs
-    # never get a location match and that's expected, not a failure.
     validate()
     logger = get_logger("build_stage_fact", run_id)
     engine = get_engine()
